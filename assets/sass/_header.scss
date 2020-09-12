@@ -1,0 +1,66 @@
+.header{
+    font-size: 14px;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    .container{
+        margin: 0;
+        width: 88%;
+    }
+    .life{
+        position: relative;
+        .number{
+            @include fluid-type(320px, 1500px, 18px, 34px);
+            color: $white;
+            font-family: $chianti;
+            left: 50%;
+            position:absolute;
+            top: 25px;
+            transform: translate(-50%);
+        }
+    }
+    .timer{
+        @include fluid-type(320px, 1500px, 18px, 34px);
+        color: $blue;
+        font-family: $chianti;
+    }
+    .pause{
+        cursor: pointer;
+    }
+    .logo{
+        background: $blue;
+        display: inline-block;
+        height: 120px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 120px;
+    }
+}
+
+
+//styles for width: 900px and up
+@media only screen and (min-width: $break-m){
+    .header{
+        &:before{
+            @include pseudo($right: -15%, $bottom: 0);
+            background: url(images/login-bg.jpg)top center no-repeat;
+            background-size: contain;
+			height: 100%;
+            width: 320px;
+            z-index: -1;
+        }
+        .logo{
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+@media only screen and (min-width: $break-l){
+    .header{
+        &:before{
+            @include pseudo($right: 0, $bottom: 0);
+        }
+    }     
+}

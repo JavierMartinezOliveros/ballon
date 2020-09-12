@@ -1,0 +1,29 @@
+footer{
+    bottom: 0;
+    left: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: fixed;
+    transform: translate(-50%);
+    img{
+        max-width: 618px;
+    }
+}
+.footer{
+    flex-direction: column;
+    font-size: 16px;
+    padding: 30px;
+}
+@media only screen and (min-width: $break-m){
+    .footer{
+        flex-direction: row;
+        .contact, .logo, .politicas{
+            margin-bottom: 0;
+        }
+        a{
+            &:hover{
+                color: $pink;
+            }
+        }
+    }
+}

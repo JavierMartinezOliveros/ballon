@@ -1,0 +1,155 @@
+#juego{
+    background: url(../dist/images/fondo-gris.png)top center no-repeat;
+	background-size: cover;
+    height: 768px;
+	margin: 0;
+	overflow-x: hidden;
+}
+.ballon{
+	&-content{
+		position: relative;
+		width: 50%;
+		&__item{
+			height: 200px;
+			position: relative;
+			width: 100%;
+		}
+		&__pump{
+			float: right;
+			margin: 0 50px;
+			max-width: 250px;
+			position: absolute;
+			//position: relative;
+			right: 0;
+			width: 100%;
+            img{
+				position: absolute;
+				//position: relative;
+				right: 0;
+				top: 0;
+                z-index: 1;
+			}
+			#container{
+				height: 155px;
+				overflow: hidden;
+			}
+        }
+        &__control{
+            height: 300px;
+			//position: absolute;
+			position: relative;
+            right: -30px;
+            width: 150px;
+            .control-top{
+				position: relative;
+				right: -70px;
+                width: 150px;
+                &:before{
+                    @include pseudo($left: 50%, $top: 0);
+                    background: url(images/_0003_Layer-3.png)top center repeat-y;
+                    background-size: contain;
+                    height: 170px;
+                    transform: translate(-50%);
+                    width: 14px;
+                    z-index: 0;
+                }
+                img{
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+            
+		}
+		&__case{
+			right: 30px!important;
+		}
+	}
+	&-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+		padding: 0 50px;
+        width: 50%;
+        &__top{
+            img{
+                margin :15px 0;
+                max-width: 237px;
+                width: 100%;
+            }
+            .two{
+                width: 290px;
+            }
+            .three{
+                width: 194px;
+            }
+            .four{
+                width: 273px;
+            }
+        }
+        &__bottom{
+            img{
+                max-width: 300px;
+            }
+        }
+	}
+}
+.ballon{
+	/*   animation-name: inflate2; */
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards; 
+
+    bottom: 0;
+    left: 138px;
+	position: absolute;
+	transform-origin: bottom center;
+  	transform: scale(.1);
+	width: 80px;
+	will-change: transform;
+}
+
+
+@keyframes inflate0 {
+    from {
+      transform: scale(.1);
+    }
+    to {
+      transform: scale(.3);
+    }
+  }
+  
+  @keyframes inflate1 {
+    from {
+      transform: scale(.3);
+    }
+    to {
+      transform: scale(.6);
+    }
+  }
+  
+  @keyframes inflate2 {
+    from {
+      transform: scale(.6);
+    }
+    to {
+      transform: scale(.9);
+    }
+  }
+  
+  @keyframes inflate3 {
+    from {
+      transform: scale(.9);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  
+  @keyframes deflate {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(0.1);
+    }
+  }

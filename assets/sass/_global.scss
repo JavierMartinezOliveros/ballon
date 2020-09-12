@@ -1,0 +1,45 @@
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;   
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, em, font, img, small, strong, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+img, img:hover, img:active, picture {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+main {
+    padding: 20px;
+    background-color: $white;
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+
+}

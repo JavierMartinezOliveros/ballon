@@ -1,0 +1,62 @@
+/* SLICK SLIDER
+*********************************************************** */
+.sym-slides, .slick{
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+	&.slick-initialized{
+		opacity: 1;
+	}
+}
+
+$slick_arrow_width: 20px;
+$slick_arrow_height: 25px;
+.slick-arrow{
+	position: absolute;
+	width: $slick_arrow_width;
+	height: $slick_arrow_height;
+	//background: url(images/svg/baknisimo-flecha.svg);
+	border: 0;
+	font-size: 0;
+	z-index: 7;
+	cursor: pointer;
+	transition: all 0.4s;
+	top: calc(50% - ($slick_arrow_height / 2));
+	&.slick-prev{
+		left: 0;
+	}
+	&.slick-next{
+		right: 0;
+		//transform: rotate(180deg);
+	}
+}
+
+/*** Slick Dots ***/
+$slick_dot_size: 15px;
+$slick_dots__color: $blue;
+$slick_dots__color__active: $blue;
+.slick-dots{
+	padding-left: 0;
+	text-align: center;
+	li{
+		display: inline-block;
+		list-style: none;
+		margin: 0 10px;
+		button{
+			font-size: 0;
+			line-height: 0;
+			display: block;
+			width: $slick_dot_size;
+			height: $slick_dot_size;
+			cursor: pointer;
+			background-color: $slick_dots__color;
+			border: 0;
+			border-radius: 50%;
+			background-clip: padding-box; /* Prevents border-radius causing bg color bleed in FF */
+			transition: all 0.4s;
+		}
+		&.slick-active button{
+			background-color: $slick_dots__color__active;
+		}
+	}
+}
+

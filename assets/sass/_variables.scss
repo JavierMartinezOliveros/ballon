@@ -1,0 +1,132 @@
+$white: #ffffff;
+$black: #000000;
+$txt_color: #000000;
+$pink: #f03952;
+$blue: #004a98;
+$yellow: #f7c560;
+$gray: #8d8d8d;
+$error_color: #e74c3c;
+
+//fonts
+$sans_serif:'Roboto', sans-serif;
+$chianti:'chianti_bdit_btbold_italic', sans-serif;
+
+
+@function em($pixels, $context: $browser-context) {
+	@return ($pixels / $context) * 1rem;
+}
+
+// Media Queries
+$break-l: 1200px;
+$break-m: 900px;
+$break-s: 640px;
+
+//mixins
+@mixin border-radius($pixel...){
+	border-radius: $pixel;
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '', $z: false, $top: false, $right: false, $bottom: false, $left: false){
+	content: $content;
+	display: $display;
+	position: $pos;
+	@if $top { top: $top; }
+	@if $right { right: $right; }
+	@if $bottom { bottom: $bottom; }
+	@if $left { left: $left; }
+	@if $z{ z-index: $z; }
+}
+
+@mixin pos($display: block, $pos: absolute, $z: false, $top: false, $right: false, $bottom: false, $left: false){
+	display: $display;
+	position: $pos;
+	@if $top { top: $top; }
+	@if $right { right: $right; }
+	@if $bottom { bottom: $bottom; }
+	@if $left { left: $left; }
+	@if $z{ z-index: $z; }
+}
+//includes
+%btn {
+	@include border-radius(25px);
+	background: $pink;
+	border: none;
+	color: $white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	letter-spacing: 1.3px;
+	max-height: 40px;
+	outline: none;
+	padding: 11px 25px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	zoom: 1;
+	transition: all .3s ease-in-out;
+	@media only screen and (min-width: $break-m){
+		&:hover {
+			@include border-radius(0);
+			background: $yellow;
+		}
+	}
+	&.blue{
+		background: $blue;
+		&:hover{
+			background: $yellow;
+		}
+	}
+	&.no-color{
+		background: transparent;
+		border: 1px solid $white;
+	}
+	&.blue-border{
+		background: transparent;
+		border: 1px solid $blue;
+		color: $blue;
+	}
+}
+
+%hidden {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}
+
+%animated{
+	transition: all 0.7s cubic-bezier(0.18, 0.32, 0.17, 0.99);
+}
+
+/********************************************************************************
+ * FONT SIZE FUNCTION
+ ********************************************************************************/
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+  
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-font-size);
+	$u4: unit($max-font-size);
+  
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+	  & {
+    
+            font-size: $min-font-size;
+            @media screen and (min-width: $min-vw) {
+            font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+    
+            @media screen and (min-width: $max-vw) {
+            font-size: $max-font-size;
+            }
+        }
+	}
+}

@@ -1,0 +1,38 @@
+.animate-fade, .animate-fade-2 {
+	opacity: 0;
+	&.top {
+		transform: translateY(100px);
+		&.fade-in {
+			transform: translateY(0);
+		}
+	}
+	&.bottom {
+		transform: translateY(-100px);
+		&.fade-in {
+			transform: translateY(0);
+		}
+	}
+	&.left {
+		transform: translateX(-100px);
+		&.fade-in {
+			transform: translateX(0);
+		}
+	}
+	&.right {
+		transform: translateX(100px);
+		&.fade-in {
+			transform: translateX(0);
+		}
+	}
+	&.animate-clip{
+		clip-path: inset(0 100% 0 0);
+		opacity: 1;
+		&.fade-in{
+			clip-path: inset(0 0 0 0);
+		}
+	}
+	&.fade-in {
+		opacity: 1;
+		transition: all 0.7s cubic-bezier(0.18, 0.32, 0.17, 0.99);
+	}
+}
